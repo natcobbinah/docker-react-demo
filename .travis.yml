@@ -1,4 +1,7 @@
 language: node_js
+node_js:
+  - "19"
+  - node
 services:
   - docker
 
@@ -6,4 +9,4 @@ before_install:
   - docker build -t natcobbinah/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run natcobbinah/docker-react npm run test -- --coverage
+  - docker run -e CI=true natcobbinah/docker-react npm run test
