@@ -1,9 +1,9 @@
-sudo: required
+language: node_js
 services:
   - docker
 
 before_install:
-  - docker build -t natcobbinah/docker-react-demo -f Dockerfile.dev .
+  - docker build -t natcobbinah/docker-react -f Dockerfile.dev .
 
 script:
-  - docker run natcobbinah/docker-react-demo npm run test -- --coverage
+  - docker run natcobbinah/docker-react npm run test -- --coverage
